@@ -1,0 +1,30 @@
+version: 2
+
+models:
+  - name: stg_precos
+    description: "Precos de combustiveis da ANP, limpos e padronizados."
+    columns:
+
+      - name: valor_venda
+        description: "Preco de venda, em numero (ja convertido de texto)."
+        tests:
+          - not_null
+          - dbt_utils.accepted_range:
+              min_value: 0
+              inclusive: false        # 0 nao vale (preco tem que ser > 0)
+              max_value: 50            # nenhum combustivel custa mais que R$50/litro
+
+      - name: estado
+        description: "Sigla do estado (UF)."
+        tests:
+          - not_null                    # teu teste 4: estado nunca faltando
+
+      - name: produto
+        description: "Tipo de combustivel."
+        tests:
+          - not_null                    # bonus: produto nunca vazio
+
+      - name: data_coleta
+        description: "Data da coleta do preco."
+        tests:
+          - not_null

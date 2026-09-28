@@ -1,0 +1,13 @@
+# Python
+venv/
+__pycache__/
+.env
+
+# Dados brutos (grandes, baixáveis da ANP)
+data/
+
+# Arquivos gerados pelo dbt (recriaveis)
+anp_analytics/target/
+anp_analytics/dbt_packages/
+anp_analytics/logs/
+logs/
