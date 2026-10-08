@@ -11,3 +11,18 @@ anp_analytics/target/
 anp_analytics/dbt_packages/
 anp_analytics/logs/
 logs/
+
+# Databricks
+.databricks/
+.databrickscfg
+
+# Python
+__pycache__/
+*.pyc
+.venv/
+venv/
+.pytest_cache/
+
+# Data (nunca comitar CSVs da ANP)
+data/
+*.csv
